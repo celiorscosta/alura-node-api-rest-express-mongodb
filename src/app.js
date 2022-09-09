@@ -10,7 +10,7 @@ const livros = [
 ];
 
 app.get('/', (req, res) => {
-    res.status(200).send('Curso de Node');
+    res.status(200).send('Curso de Node Alura');
 });
 
 app.get('/livros', (req, res) => {
