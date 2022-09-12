@@ -6,8 +6,10 @@ services:
     container_name: meu-mongo
     networks:
       - compose-bridge
-    # volumes:
-    #       - .:/data/db
+    ports:
+      - "27017:27017"
+    volumes:
+          - mongo_db:/data/db
   livraria:
     build: .
     command: "npm start"   
@@ -24,3 +26,5 @@ services:
 networks:
   compose-bridge:
     driver: bridge
+volumes:
+  mongo_db:
