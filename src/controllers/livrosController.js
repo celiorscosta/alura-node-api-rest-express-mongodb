@@ -26,6 +26,21 @@ class LivroController {
 
     }
 
+    static listarLivroPorEditora = (req, res) => {
+        const editora = req.query.editora;
+        console.log(editora);
+        livros.find({ "editora": editora }, {}, (err, livros) => {
+            res.status(200).send(livros);
+        })
+    }
+
+    static listarLivroPorTitulo = (req, res) => {
+        const titulo = req.query.titulo;
+        livros.find({ "titulo": titulo }, {}, (err, livros) => {
+            res.status(200).send(livros);
+        })
+    }
+
     static cadastrarLivros = (req, res) => {
         let livro = new livros(req.body);
         livro.save((err) => {
